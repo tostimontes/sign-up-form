@@ -38,53 +38,99 @@
           You <span class="italicized">know</span> you want to.
         </p>
       </div>
-      <form action="" method="post">
+      <form action="#" method="post" id="the_form">
         <legend>Let's do this!</legend>
         <div class="names form_section">
           <div class="input_field first_name">
             <label for="first_name">First name</label>
-            <input type="text" id="first_name" name="first_name" />
-            <div class="invalid_input">* Max. 30 alphabetic-only characters</div>
+            <input
+              required
+              type="text"
+              id="first_name"
+              name="first_name"
+              maxlength="30"
+              pattern="^[A-Za-z]+(\s*[A-Za-z]+)*$"
+            />
+            <div class="invalid_input">
+              * Max. 30 alphabetic-only characters
+            </div>
           </div>
           <div class="input_field last_name">
             <label for="last_name">Last name</label>
-            <input type="text" id="last_name" name="last_name" />
-            <div class="invalid_input">* Max. 30 alphabetic-only characters</div>
+            <input
+              required
+              type="text"
+              id="last_name"
+              name="last_name"
+              maxlength="30"
+              pattern="^[A-Za-z]+(\s*[A-Za-z]+)*$"
+            />
+            <div class="invalid_input">
+              * Max. 30 alphabetic-only characters
+            </div>
           </div>
         </div>
         <div class="contact_info form_section">
           <div class="input_field email">
             <label for="email">Email</label>
-            <input type="email" id="email" name="email" />
-            <div class="invalid_input">* Example: <span class="italicized">your_name@email.com</span></div>
+            <input required type="email" id="email" name="email" />
+            <div class="invalid_input">
+              * Example: <span class="italicized">your_name@email.com</span>
+            </div>
           </div>
           <div class="input_field phone_number">
             <label for="phone_number">Phone number</label>
-            <input type="tel" id="phone_number" name="phone_number" />
-            <div class="invalid_input">* Format: +XX (<span class="italicized">optional</span>) XXX XXX XXX </div>
+            <input
+              required
+              type="tel"
+              id="phone_number"
+              name="phone_number"
+              pattern="^(?:(?:\+|\b00)\d{2})?\s*(?:\d\s*){9}$"
+            />
+            <!--Spanish phone number regex-->
+            <div class="invalid_input">
+              * Format: +XX (<span class="italicized">optional</span>) XXX XXX
+              XXX
+            </div>
           </div>
         </div>
         <div class="password_inputs form_section">
           <div class="input_field password">
             <label for="password">Password</label>
-            <input type="password" id="password" name="password" />
-            <div class="invalid_input">* Between 8-12 characters <br> &nbsp; At least 1 capital letter<br>&nbsp; At least 1 digit</div>
-            
-            <div class="mismatched_passwords"></div>
+            <div class="password_eye">
+              <input
+                required
+                type="password"
+                id="password"
+                name="password"
+                pattern="^(?=.*[A-Z])(?=.*\d)[A-Za-z\d]{8,12}$"
+              /><img class="eye_icon" src="./media/eye.svg" alt="eye-icon" />
+            </div>
+            <div class="invalid_input">
+              * Between 8-12 characters <br />
+              &nbsp; At least 1 capital letter<br />&nbsp; At least 1 digit
+            </div>
           </div>
           <div class="input_field confirm_password">
             <label for="confirm_password">Confirm password</label>
-            <input
-              type="password"
-              id="confirm_password"
-              name="confirm_password"
-            />
-            <div class="invalid_input"></div>
+            <div class="password_eye">
+              <input
+                required
+                type="password"
+                id="confirm_password"
+                name="confirm_password"
+                pattern="^(?=.*[A-Z])(?=.*\d)[A-Za-z\d]{8,12}$"
+              />
+              <img class="eye_icon" src="./media/eye.svg" alt="eye-icon" />
+            </div>
+            <div class="mismatched_passwords">* Passwords don't match</div>
           </div>
         </div>
       </form>
       <div class="submit_login">
-        <button type="submit" id="submit_button">Create Account</button>
+        <button type="submit" id="submit_button" form="the_form">
+          Create Account
+        </button>
         <p class="log_in">
           Already have an account? <a href="" class="log_in_link">Log in</a>
         </p>
