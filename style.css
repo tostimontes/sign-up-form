@@ -1,9 +1,3 @@
-/*
-transitions for :focus states
-mobile size media queries
-button press animation
-*/
-
 :root {
   font-size: 62.5%;
   --almost-white: rgb(240, 240, 240);
@@ -15,6 +9,7 @@ button press animation
   --input-success-border: #059669;
   --input-focus-border: #2588eb;
 }
+
 
 @font-face {
   font-family: "ComicRunes";
@@ -47,6 +42,7 @@ body {
   height: 100%;
   width: 100%;
 }
+
 
 /* LEFT SECTION */
 
@@ -252,4 +248,34 @@ div.password_inputs img {
 
 .italicized {
   font-style: italic;
+}
+
+@media (max-width: 500px) {
+  body {
+    flex-direction: column;
+    height: fit-content;
+  }
+
+  .image_container {
+    width: 100%;
+    height: 40rem;
+  }
+
+  .form_container {
+    width: 100%;
+    padding-top: 3rem;
+    height: calc(100% - 40rem);
+    align-items: center;
+  }
+
+  form {
+    padding: 3rem 4rem;
+  }
+
+  .form_section {
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+
 }
